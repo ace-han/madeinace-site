@@ -7,7 +7,7 @@
 
 ## Features
 
-- ✅ Integration with **Tailwind CSS** ([@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)) supporting **Dark mode** and ***RTL***.
+- ✅ Integration with **Tailwind CSS** ([@astrojs/tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/)) supporting **Dark mode** and **_RTL_**.
 - ✅ **Production-ready** scores in [Lighthouse](https://web.dev/measure/) and [PageSpeed Insights](https://pagespeed.web.dev/) reports.
 - ✅ **Fast and SEO friendly blog** with automatic **RSS feed** ([@astrojs/rss](https://docs.astro.build/en/guides/rss/)), [**MDX** support](https://docs.astro.build/en/guides/integrations-guide/mdx/), **Categories & Tags**, **Social Share**, ...
 - ✅ **Image Optimization** (using new [Astro Assets](https://astro.build/blog/images/) and [Unpic](https://unpic.pics/lib/) for Universal image CDN) and **Font optimization**.
@@ -16,8 +16,6 @@
 - ✅ **Analytics** built-in Google Analytics, and Splitbee integration.
 
 <br>
-
-
 
 [![License](https://img.shields.io/github/license/ace-han/madeinace?style=flat-square&color=dddddd&labelColor=000000)](https://github.com/ace-han/madeinace-site/blob/main/LICENSE.md)
 [![Maintained](https://img.shields.io/badge/maintained%3F-yes-brightgreen.svg?style=flat-square)](https://github.com/onwidget)
@@ -118,7 +116,6 @@ There's nothing special about `src/components/`, but that's where we like to put
 
 Any static assets, like images, can be placed in the `public/` directory if they do not require any transformation or in the `assets/` directory if they are imported directly.
 
-
 > 🧑‍🚀 **Seasoned astronaut?** Delete this file. Update `config.mjs` and contents. Have fun!
 
 <br>
@@ -164,7 +161,7 @@ metadata:
   openGraph:
     site_name: 'Example'
     images:
-      - url: '~/assets/images/default.jpg'
+      - url: '@/assets/images/default.jpg'
         width: 1200
         height: 628
     type: website

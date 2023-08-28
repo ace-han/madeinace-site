@@ -1,9 +1,9 @@
 ---
-import PageLayout from '~/layouts/PageLayout.astro';
-import Header from '~/components/widgets/Header.astro';
+import PageLayout from '@/layouts/PageLayout.astro';
+import Header from '@/components/widgets/Header.astro';
 
-import { headerData } from '~/navigation';
-import { MetaData } from '~/types';
+import { headerData } from '@/navigation';
+import { MetaData } from '@/types';
 
 export interface Props {
   metadata?: MetaData;
@@ -24,7 +24,7 @@ const { metadata } = Astro.props;
           {
             type: 'ghost',
             text: 'Download',
-            href: 'https://github.com/ace-han/madeinace-site'
+            href: 'https://github.com/ace-han/madeinace-site',
           },
         ]}
         showToggleTheme

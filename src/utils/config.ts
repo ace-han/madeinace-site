@@ -2,7 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import merge from 'lodash.merge';
 
-import type { MetaData } from '~/types';
+import type { MetaData } from '@/types';
 
 export interface SiteConfig {
   name: string;
@@ -130,7 +130,7 @@ const getI18N = () => {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      timeZoneName:'shortOffset',
+      timeZoneName: 'shortOffset',
       hour12: false,
       // timeZone: 'UTC',
     }),

@@ -1,7 +1,7 @@
 import { getCollection } from 'astro:content';
 import type { CollectionEntry } from 'astro:content';
-import type { Course } from '~/types';
-import { APP_BLOG_CONFIG } from '~/utils/config';
+import type { Course } from '@/types';
+import { APP_BLOG_CONFIG } from '@/utils/config';
 import { cleanSlug, BLOG_BASE, CATEGORY_BASE, TAG_BASE } from './permalinks';
 
 const getNormalizedCourse = async (post: CollectionEntry<'course'>): Promise<Course> => {

@@ -1,12 +1,12 @@
 ---
 // with feature outstanding section
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import Layout from '@/layouts/PageLayout.astro';
+import BlogList from '@/components/blog/List.astro';
+import Headline from '@/components/blog/Headline.astro';
+import Pagination from '@/components/blog/Pagination.astro';
+// import PostTags from "@/components/blog/Tags.astro";
 
-import { blogCoursesPerPage, fetchCourses } from '~/utils/course';
+import { blogCoursesPerPage, fetchCourses } from '@/utils/course';
 
 const posts = await fetchCourses();
 

@@ -1,12 +1,12 @@
 ---
-import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
+import { blogCategoryRobots, getStaticPathsBlogCategory } from '@/utils/blog';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '@/layouts/PageLayout.astro';
+import BlogList from '@/components/blog/List.astro';
+import Headline from '@/components/blog/Headline.astro';
+import Pagination from '@/components/blog/Pagination.astro';
 
-export async function getStaticPaths ({ paginate }) {
+export async function getStaticPaths({ paginate }) {
   return await getStaticPathsBlogCategory({ paginate });
 }
 

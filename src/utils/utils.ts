@@ -1,4 +1,4 @@
-import { I18N_CONFIG } from '~/utils/config';
+import { I18N_CONFIG } from '@/utils/config';
 
 const formatter =
   I18N_CONFIG?.dateFormatter ||

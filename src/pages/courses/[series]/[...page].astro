@@ -1,10 +1,10 @@
 ---
-import { blogCategoryRobots, getStaticPathsCourseSeries } from '~/utils/course';
+import { blogCategoryRobots, getStaticPathsCourseSeries } from '@/utils/course';
 
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
+import Layout from '@/layouts/PageLayout.astro';
+import BlogList from '@/components/blog/List.astro';
+import Headline from '@/components/blog/Headline.astro';
+import Pagination from '@/components/blog/Pagination.astro';
 
 export async function getStaticPaths({ paginate }) {
   const result = await getStaticPathsCourseSeries({ paginate });

@@ -1,12 +1,12 @@
 ---
 // with feature outstanding section
-import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
-import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
-// import PostTags from "~/components/blog/Tags.astro";
+import Layout from '@/layouts/PageLayout.astro';
+import BlogList from '@/components/blog/List.astro';
+import Headline from '@/components/blog/Headline.astro';
+import Pagination from '@/components/blog/Pagination.astro';
+// import PostTags from "@/components/blog/Tags.astro";
 
-import { getStaticPathsCourseList } from '~/utils/course';
+import { getStaticPathsCourseList } from '@/utils/course';
 
 export async function getStaticPaths({ paginate }) {
   return await getStaticPathsCourseList({ paginate });
