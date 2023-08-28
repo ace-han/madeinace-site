@@ -20,7 +20,7 @@ export interface MetaDataConfig extends Omit<MetaData, 'title'> {
 export interface I18NConfig {
   language: string;
   textDirection: string;
-  dateFormatter: unknown;
+  dateFormatter: Intl.DateTimeFormat;
 }
 export interface AppBlogConfig {
   isEnabled: boolean;
@@ -125,9 +125,14 @@ const getI18N = () => {
   return Object.assign(value, {
     dateFormatter: new Intl.DateTimeFormat(value.language, {
       year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-      timeZone: 'UTC',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      timeZoneName:'shortOffset',
+      hour12: false,
+      // timeZone: 'UTC',
     }),
   }) as I18NConfig;
 };

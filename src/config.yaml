@@ -11,7 +11,7 @@ metadata:
   title:
     default: Madeinace
     template: '%s — Madeinace'
-  description: "\U0001F680 Suitable for Startups, Small Business, Sass Websites, Professional Portfolios, Marketing Websites, Landing Pages & Blogs."
+  description: 'We will ace it and it is made in ace.'
   robots:
     index: true
     follow: true
@@ -28,7 +28,7 @@ metadata:
     cardType: summary_large_image
 
 i18n:
-  language: en
+  language: zh
   textDirection: ltr
 
 apps:
