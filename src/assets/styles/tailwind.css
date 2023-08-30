@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* copy from https://ui.shadcn.com/themes */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -16,8 +17,8 @@
     --secondary-foreground: 220.9 39.3% 11%;
     --muted: 0 0% 6.27% / 66%;
     --muted-foreground: 0 0% 4% / 44%;
-    --accent: 250 96% 40%;
-    --accent-foreground: 250 90% 90%;
+    --accent: 220 14.3% 95.9%;
+    --accent-foreground: 220.9 39.3% 11%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 20% 98%;
     --border: 220 13% 91%;
@@ -50,6 +51,15 @@
 }
 
 @layer base {
+  /* custom basic style variables here */
+  :root {
+    --accent: 250 96% 40%;
+    --accent-foreground: 250 90% 90%;
+  }
+
+  .dark {
+    --muted: 215 49% 93% 66%;
+  }
   * {
     @apply border-border;
   }
