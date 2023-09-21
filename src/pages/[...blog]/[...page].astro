@@ -6,10 +6,11 @@ import Pagination from '@/components/blog/Pagination.astro';
 // import PostTags from "@/components/blog/Tags.astro";
 
 import { blogListRobots, getStaticPathsBlogList } from '@/utils/blog';
+import type { GetStaticPaths } from 'astro';
 
-export async function getStaticPaths({ paginate }) {
-  return await getStaticPathsBlogList({ paginate });
-}
+export const getStaticPaths: GetStaticPaths = async ({ paginate }) => {
+  return await getStaticPathsBlogList(paginate);
+};
 
 const { page } = Astro.props;
 const currentPage = page.currentPage ?? 1;

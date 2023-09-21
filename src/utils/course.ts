@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import type { Course } from '@/types';
 import { APP_BLOG_CONFIG } from '@/utils/config';
 import { cleanSlug, BLOG_BASE, CATEGORY_BASE, TAG_BASE } from './permalinks';
+import type { PaginateFunction } from 'astro';
 
 const getNormalizedCourse = async (post: CollectionEntry<'course'>): Promise<Course> => {
   const { id, slug: rawSlug = '', data } = post;
@@ -10,7 +11,7 @@ const getNormalizedCourse = async (post: CollectionEntry<'course'>): Promise<Cou
 
   const {
     publishDate: rawPublishDate = new Date(),
-    editedAt: rawEditedAt,
+    updateDate: rawEditedAt,
     title,
     excerpt,
     image,
@@ -128,7 +129,7 @@ export const findLatestCourses = async ({ count }: { count?: number }): Promise<
 };
 
 /** */
-export const getStaticPathsCourseList = async ({ paginate }) => {
+export const getStaticPathsCourseList = async (paginate: PaginateFunction) => {
   if (!isBlogEnabled || !isBlogListRouteEnabled) return [];
   const result = paginate(await fetchCourses(), {
     params: { blog: BLOG_BASE || undefined },
@@ -149,17 +150,17 @@ export const getStaticPathsCoursePosts = async () => {
 };
 
 /** */
-export const getStaticPathsCourseSeries = async ({ paginate }) => {
+export const getStaticPathsCourseSeries = async (paginate: PaginateFunction) => {
   if (!isBlogEnabled || !isBlogCategoryRouteEnabled) return [];
 
   const posts = await fetchCourses();
-  const series = new Set();
+  const series = new Set<string>();
   posts.forEach((post) => {
     const [folderName] = post.slug.split('/');
     series.add(folderName);
   });
 
-  return Array.from(series).map((seriesName: string) => {
+  return Array.from(series).flatMap((seriesName: string) => {
     const seriesPosts = posts.filter((post) => {
       const [folderName] = post.slug.split('/');
       return seriesName === folderName;
@@ -171,26 +172,4 @@ export const getStaticPathsCourseSeries = async ({ paginate }) => {
     });
     return seriesInfo;
   });
-};
-
-/** */
-export const getStaticPathsBlogTag = async ({ paginate }) => {
-  if (!isBlogEnabled || !isBlogTagRouteEnabled) return [];
-
-  const posts = await fetchCourses();
-  const tags = new Set();
-  posts.map((post) => {
-    Array.isArray(post.tags) && post.tags.map((tag) => tags.add(tag.toLowerCase()));
-  });
-
-  return Array.from(tags).map((tag: string) =>
-    paginate(
-      posts.filter((post) => Array.isArray(post.tags) && post.tags.find((elem) => elem.toLowerCase() === tag)),
-      {
-        params: { tag: tag, blog: TAG_BASE || undefined },
-        pageSize: blogCoursesPerPage,
-        props: { tag },
-      }
-    )
-  );
 };

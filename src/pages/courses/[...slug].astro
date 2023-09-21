@@ -1,6 +1,6 @@
 ---
 import merge from 'lodash.merge';
-import type { ImageMetadata } from 'astro';
+import type { GetStaticPaths, ImageMetadata } from 'astro';
 import Layout from '@/layouts/PageLayout.astro';
 import SinglePost from '@/components/blog/SinglePost.astro';
 import ToBlogLink from '@/components/blog/ToBlogLink.astro';
@@ -9,11 +9,10 @@ import { getCanonical, getPermalink } from '@/utils/permalinks';
 import { getStaticPathsCoursePosts } from '@/utils/course';
 import { findImage } from '@/utils/images';
 
-export async function getStaticPaths() {
-  // return await getStaticPathsCoursePosts();
+export const getStaticPaths: GetStaticPaths = async () => {
   const result = await getStaticPathsCoursePosts();
   return result;
-}
+};
 
 const { post } = Astro.props;
 
