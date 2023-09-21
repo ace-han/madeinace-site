@@ -12,6 +12,7 @@ import { readingTimeRemarkPlugin } from './src/utils/frontmatter.mjs';
 import { ANALYTICS_CONFIG, SITE_CONFIG } from './src/utils/config.ts';
 import react from '@astrojs/react';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
 const whenExternalScripts = (items = []) =>
   ANALYTICS_CONFIG.vendors.googleAnalytics.id && ANALYTICS_CONFIG.vendors.googleAnalytics.partytown
     ? Array.isArray(items)
@@ -45,7 +46,6 @@ export default defineConfig({
           'business-contact',
           'database',
         ],
-        ri: ['twitter-fill', 'facebook-box-fill', 'linkedin-box-fill', 'whatsapp-fill', 'mail-fill'],
       },
     }),
     ...whenExternalScripts(() =>
@@ -70,9 +70,6 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
-  },
-  experimental: {
-    assets: true,
   },
   vite: {
     resolve: {
