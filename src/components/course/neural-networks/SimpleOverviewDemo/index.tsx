@@ -1,4 +1,3 @@
-import '@/assets/styles/split.css';
 import Chart from './Chart';
 import Topology from './Topology';
 import { NeuralNetworkProvider, type Chain } from './NeuralNetworkContext';
