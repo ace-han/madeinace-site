@@ -1,0 +1,10 @@
+---
+// It should be a bug
+// refer to
+// https://github.com/withastro/astro/issues/8807
+// I might as well add this style.css here
+import 'reactflow/dist/style.css';
+import SimpleOverviewDemo from '.';
+---
+
+<SimpleOverviewDemo client:only="react" />
