@@ -56,6 +56,9 @@ export default defineConfig({
       })
     ),
     tasks(),
+    react(),
+    // astro-compress needs to be the last one
+    // https://github.com/astro-community/AstroCompress
     compress({
       CSS: true,
       HTML: {
@@ -66,7 +69,6 @@ export default defineConfig({
       SVG: true,
       Logger: 1,
     }),
-    react(),
   ],
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
